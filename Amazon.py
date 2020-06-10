@@ -13,7 +13,7 @@ import requests
 # Go to google.com -> my user agent -> copy your agent and paste.
 headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36'}
 
-# In the main function we will create a dict with product's ID and witch amazon is selling.
+# In the main function we will create a dict with product's ID and which amazon store is selling it.
 # This code allows you to scrape from the following Amazon stores: Brazil, Germany and USA.
 # The product's ID is in the URL: https://www.amazon.com/dp/B082TJT44G -> B082TJT44G -> Echo Dot.
 def main():
@@ -23,7 +23,7 @@ def main():
     products.update({"B00FLYWNYQ": "USA"})		# An Instant Pot in USA store
     scrape(products) 
 	
-# The scrape function will get the product's ID and witch Amazon store is it listed.
+# The scrape function will get the product's ID and which Amazon store is it listed.
 def scrape(products):
     for (ID, country) in products.items():
         if country.upper() == "BR":
