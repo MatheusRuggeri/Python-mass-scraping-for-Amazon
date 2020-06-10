@@ -35,20 +35,20 @@ def scrape(products):
         else:
             domain = "com"
     
-		# Concat the values to get the URL to the product
+	# Concat the values to get the URL to the product
         url = "https://www.amazon." + domain + "/dp/" + ID
-		# Request the page using the URL, the headers that was defined in the beggining and LXML, a third-party Python parser (you might install lxml)
+	# Request the page using the URL, the headers that was defined in the beggining and LXML, a third-party Python parser (you might install lxml)
         soup = BeautifulSoup(requests.get(url, headers=headers).content, 'lxml')
     
-		# Find the product's Title and Amazon's price
+	# Find the product's Title and Amazon's price
         title = soup.find(id='productTitle')
         price = soup.find(id='priceblock_ourprice')
         
-		# To return a human readable text, you should use get_text(), a method from BeautifulSoup, I suggest you print the values before and after get_text() to see the differeces.
+	# To return a human readable text, you should use get_text(), a method from BeautifulSoup, I suggest you print the values before and after get_text() to see the differeces.
         title = (title.get_text(strip=True))
         price = (price.get_text(strip=True))
 		
-		# Print your data
+	# Print your data
         data = {'Product':title, 'Price':price} 
         print(data)
   
